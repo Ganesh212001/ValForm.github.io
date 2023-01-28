@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Form</title>
+    <style>
+       form {
+        border: 3px solid black;
+        background-color: yellow;
+        display: inline-block;
+        padding: 20px;
+        border-radius: 15px;
+        align-content: center;
+        align-items: center;
+       }
+       .btn{
+        margin: auto 30px;
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 5px 8px;
+        cursor: pointer;
+       }
+       .btn:hover{
+        background-color:gray;
+       }
+       .course1{
+        cursor: pointer;
+       }
+    </style>
+    <script>
+        function validate (){
+            var name=
+                document.forms.ValForm.name.value;
+           
+            var address=
+                document.forms.ValForm.address.value;
+            
+            var Mobile=
+                document.forms.ValForm.Mobile.value;
+            
+            var Email=
+                document.forms.ValForm.Email.value;
+               
+            var password=
+                document.forms.ValForm.password.value;
+                
+            var course=
+                document.forms.ValForm.course.value;
+
+            var regname=
+                /^[a-zA-Z ]/;
+
+            var regEmail=
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			    
+            var regMobile=
+                /^[0]?[789]\d{9}$/;
+			    
+			    
+            var regpassword=
+                /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
+
+                if(name == "" || !regname.test(name) ){
+				alert("Please Enter Your Name");
+				return false;
+			}
+                 if(address == "" ){
+				alert("Please Enter Your Address");
+				return false;
+			}
+                 if(Mobile == "" || !regMobile.test(Mobile) ){
+				alert("Please Enter Your Mobile Number");
+				return false;
+			}
+                 if(Email == "" || !regEmail.test(Email) ){
+				alert("Please Enter Your Email");
+				return false;
+			}
+
+                 if(password == "" || !regpassword.test(password) ){
+				alert("Please Enter Your Password");
+				return false;
+			}
+                 if(course == "" ){
+				alert("Select Your Course !");
+				return false;
+			}
+                return true;
+                
+        }
+    </script>
+</head>
+<body>
+    <h1 class="h1">Registration Form</h1><br>
+    <div class="container">
+        <form name="ValForm" onsubmit="return validate()" method="post">
+        <label for="name">Name :</label><br>
+            <input type="text" name="name"><br>
+                        <br>
+        <label for="address">Address :</label><br>
+            <input type="text" name="address"><br>
+                        <br>
+        <label for="Mobile">Mobile No. :</label><br>
+            <input type="text" name="Mobile"><br>
+                        <br>
+        <label for="Email">E-mail :</label><br>
+            <input type="text" name="Email"><br>
+                        <br>
+        <label for="password">Password :</label><br>
+            <input type="text" name="password"><br>
+                        <br>
+
+        <label for="course"> Select Course : </label><br>
+	        <select class="course1" type="text" value="" name="course"><br><br>
+	            <option value="">---Choose A Course---</option>
+                <option value="course">BBA</option>
+                <option value="course">BCA</option>
+                <option value="course">BTECH</option>
+                <option value="course">BCOM</option>
+            </select>
+                        <br><br>
+        <label for="comment">Comments :</label><br>
+        <textarea cols="30" name="comment"></textarea>
+                        <br><br>
+            <input class="btn" type="submit" name="Submit">
+            <input class="btn" type="reset" name="Reset">
+        </form>
+    </div>
+    
+</body>
+</html>
